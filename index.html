@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Segmentation Analysis</title>
+    <!-- Modern Dashboard Stylesheet with Cache Busting -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=4">
+    <!-- Local Chart.js Script (Immune to Tracking Blockers) -->
+    <script src="{{ url_for('static', filename='chart.js') }}"></script>
+</head>
+<body class="dark-theme">
+
+    <div class="dashboard-container">
+        <!-- Sidebar Controls Panel (Left Side) -->
+        <header class="sidebar no-print">
+            <h2>📊 Segments Engine</h2>
+            <p class="subtitle">HTML / CSS / JS Dashboard</p>
+            <hr style="border: 0; border-top: 1px solid #334155; margin: 5px 0;">
+            
+            <!-- Core Model Controls -->
+            <div class="control-group">
+                <label for="kSlider">Number of Clusters (K): <span id="kVal">6</span></label>
+                <input type="range" id="kSlider" min="2" max="10" value="6" step="1">
+            </div>
+            <button id="updateBtn" class="btn">Recalculate Model</button>
+            
+            <hr style="border: 0; border-top: 1px solid #334155; margin: 5px 0;">
+            
+            <!-- Highlighted Interactive Demographic Filters -->
+            <div class="control-group filter-block">
+                <label for="genderFilter">Filter by Gender</label>
+                <select id="genderFilter" class="form-control">
+                    <option value="All">All Genders</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="control-group filter-block">
+                <label for="ageSlider">Max Age Limit: <span id="ageVal">70</span></label>
+                <input type="range" id="ageSlider" min="18" max="70" value="70" step="1">
+            </div>
+            
+            <hr style="border: 0; border-top: 1px solid #334155; margin: 5px 0;">
+            
+            <!-- Utility Actions -->
+            <div class="control-group">
+                <label>Dashboard Actions</label>
+                <button id="themeToggleBtn" class="btn btn-secondary">☀️ Light Mode</button>
+                <button id="printBtn" class="btn btn-secondary" style="margin-top: 8px;">🖨️ Print Report</button>
+            </div>
+        </header>
+
+        <!-- Main Workspace Frame (Right Side) -->
+        <main class="main-content">
+            <!-- KPI Metric Ribbon -->
+            <div class="metrics-row">
+                <div class="metric-card">
+                    <h4>Total Filtered</h4>
+                    <p id="metricTotal">0</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Avg Annual Income</h4>
+                    <p id="metricIncome">$0k</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Avg Spending Score</h4>
+                    <p id="metricSpend">0</p>
+                </div>
+            </div>
+
+            <!-- Main Visualization Card -->
+            <div class="card chart-card">
+                <h3>K-Means Customer Group Distribution</h3>
+                <div class="chart-wrapper">
+                    <canvas id="customerChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Dynamic Data Roster Table Card -->
+            <div class="card table-card">
+                <h3>Filtered Customer Profile List</h3>
+                <div class="table-wrapper">
+                    <table id="customerTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Gender</th>
+                                <th>Age</th>
+                                <th>Annual Income</th>
+                                <th>Spending Score</th>
+                                <th>Assigned Segment</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <!-- Dynamic Rows Injected via script.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Core Interactive Frontend Script -->
+    <script src="{{ url_for('static', filename='script.js') }}?v=4"></script>
+</body>
+</html>

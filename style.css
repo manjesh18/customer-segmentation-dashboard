@@ -1,0 +1,246 @@
+/* Core Premium Dark Theme Variables */
+:root {
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --border-color: #334155;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #38bdf8;
+    
+    /* Highlighted filter specific colors */
+    --filter-bg: #1e293b;
+    --filter-border: #38bdf8;
+    --filter-highlight: rgba(56, 189, 248, 0.1);
+}
+
+/* Light theme support fallback */
+.light-theme {
+    --bg-main: #f1f5f9;
+    --bg-card: #ffffff;
+    --border-color: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-muted: #64748b;
+    --accent-color: #0284c7;
+    --filter-bg: #f8fafc;
+    --filter-border: #0284c7;
+    --filter-highlight: rgba(2, 132, 199, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Fixed Layout Split: Left Sidebar, Right Content Area */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Sidebar Layout Pinning */
+.sidebar {
+    width: 320px;
+    min-width: 320px;
+    background-color: var(--bg-card);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    border-right: 1px solid var(--border-color);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+}
+
+/* Interactive Highlighted Filter Blocks */
+.filter-block {
+    background-color: var(--filter-highlight);
+    border: 1px solid var(--filter-border);
+    padding: 0.85rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.05);
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Inputs & Form Styling */
+.form-control {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    width: 100%;
+}
+.form-control:focus {
+    border-color: var(--accent-color);
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+/* Action Buttons */
+.btn {
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 100%;
+}
+.btn:hover { background-color: #0369a1; }
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+.btn-secondary:hover { background-color: var(--border-color); }
+
+/* Main Screen Panel Layout */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+    overflow-y: auto;
+    background-color: var(--bg-main);
+}
+
+/* KPI Horizontal Grid Ribbon */
+.metrics-row {
+    display: flex;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.metric-card {
+    flex: 1;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.metric-card h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+.metric-card p {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Main Display Panels */
+.card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.75rem;
+    width: 100%;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-card {
+    flex: 2; /* Allocates generous space for chart rendering */
+    min-height: 420px;
+}
+.chart-card h3 {
+    margin-bottom: 1.25rem;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+.chart-wrapper {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.table-card {
+    flex: 1;
+    min-height: 250px;
+}
+.table-card h3 {
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+.table-wrapper {
+    overflow-y: auto;
+    flex: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+/* Data Table Presentation */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.85rem;
+}
+th, td {
+    padding: 0.7rem;
+    border-bottom: 1px solid var(--border-color);
+}
+th {
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    position: sticky;
+    top: 0;
+    font-weight: 600;
+}
+tr:hover { background-color: rgba(56, 189, 248, 0.04); }
+
+/* Print Mode Adjustments */
+@media print {
+    .no-print { display: none !important; }
+    body { background: white !important; color: black !important; }
+    .main-content { padding: 0 !important; }
+    .card, .metric-card { border: none !important; box-shadow: none !important; }
+    .table-card { height: auto !important; }
+    .table-wrapper { overflow: visible !important; }
+}
