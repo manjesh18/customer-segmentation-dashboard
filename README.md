@@ -3,7 +3,7 @@
 An interactive, full-stack Machine Learning web application that segments retail customers using **K-Means Clustering**. Built with a **Flask (Python)** REST API backend and a responsive **HTML5 / CSS3 / JavaScript (Chart.js)** frontend dashboard.
 
 ---
-
+#live demo :-https://customer-segmentation-dashboard-a02c.onrender.com/
 ## ✨ Features
 
 * **Dynamic Machine Learning Pipeline:** Real-time K-Means clustering powered by `scikit-learn` and `pandas`.
